@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PracticeTransform : MonoBehaviour
 {
-    public float moveSpeed = 10f;
+    public float PlayerMoveSpeed = 10f;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class PracticeTransform : MonoBehaviour
 
         if (moveDir.magnitude > 0)
         {
-            transform.Translate(moveDir * moveSpeed * Time.deltaTime, Space.World);
+            transform.Translate(moveDir * PlayerMoveSpeed * Time.deltaTime, Space.World);
         }
     }
 }
