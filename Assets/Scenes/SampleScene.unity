@@ -451,7 +451,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 516415646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cec45eb61147bd47bf3c3648d92ed12, type: 3}
+  m_Script: {fileID: 11500000, guid: 03eeaf3459db4e64b8fdb46b00e9dfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1409bf567a410d42a5531491bf8e427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 516415647}
+  player: {fileID: 0}
   sightAngle: 60
 --- !u!4 &1436755352
 Transform:
