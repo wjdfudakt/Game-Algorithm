@@ -20,7 +20,6 @@ namespace Assets
 
             float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
 
-
             if (angle < sightAngle)
             {
                 Debug.Log("플레이어 발견!");
