@@ -11,7 +11,7 @@ namespace Assets
     {
         public Transform player;
         public float sightAngle = 60f;
-
+         
         void Update()
         {
             Vector3 dirToPlayer = (player.position - transform.position).normalized;
