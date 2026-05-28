@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
-public class PracticeTransform : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     public float PlayerMoveSpeed = 10f;
 
@@ -19,10 +20,10 @@ public class PracticeTransform : MonoBehaviour
             float h = 0;
             float v = 0;
 
-            if (Keyboard.current.aKey.isPressed) h = -1;
-            if (Keyboard.current.dKey.isPressed) h = 1;
-            if (Keyboard.current.wKey.isPressed) v = 1;
-            if (Keyboard.current.sKey.isPressed) v = -1;
+            if (Keyboard.current.leftArrowKey.isPressed) h = -1;
+            if (Keyboard.current.rightArrowKey.isPressed) h = 1;
+            if (Keyboard.current.upArrowKey.isPressed) v = 1;
+            if (Keyboard.current.downArrowKey.isPressed) v = -1;
 
             inputVector = new Vector2(h, v);
         }
@@ -32,6 +33,8 @@ public class PracticeTransform : MonoBehaviour
         if (moveDir.magnitude > 0)
         {
             transform.Translate(moveDir * PlayerMoveSpeed * Time.deltaTime, Space.World);
+
+            transform.rotation = Quaternion.LookRotation(moveDir);//회전 기능 추가
         }
     }
 }

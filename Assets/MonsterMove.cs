@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class MonsterMove : MonoBehaviour
 {
@@ -13,28 +12,29 @@ public class MonsterMove : MonoBehaviour
 
     void Update()
     {
-        Vector2 inputVector = Vector2.zero;
+        Vector3 inputVector = Vector3.zero;
 
         if (Keyboard.current is not null)
         {
-            float h = 0;
-            float v = 0;
+            float x = 0;
+            float y = 0;
+            float z = 0;
 
-            if (Keyboard.current.leftArrowKey.isPressed) h = -1;
-            if (Keyboard.current.rightArrowKey.isPressed) h = 1;
-            if (Keyboard.current.upArrowKey.isPressed) v = 1;
-            if (Keyboard.current.downArrowKey.isPressed) v = -1;
+            if (Keyboard.current.aKey.isPressed) x = -1;
+            if (Keyboard.current.dKey.isPressed) x = 1;
+            if (Keyboard.current.qKey.isPressed) y = -1;
+            if (Keyboard.current.eKey.isPressed) y = 1;
+            if (Keyboard.current.wKey.isPressed) z = 1;
+            if (Keyboard.current.sKey.isPressed) z = -1;
 
-            inputVector = new Vector2(h, v);
+            inputVector = new Vector3(x, y, z);
         }
 
-        Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y).normalized;
+        Vector3 moveDir = new Vector3(inputVector.x, inputVector.y, inputVector.z).normalized;
 
         if (moveDir.magnitude > 0)
         {
             transform.Translate(moveDir * MonsterMoveSpeed * Time.deltaTime, Space.World);
-
-            transform.rotation = Quaternion.LookRotation(moveDir);//회전 기능 추가
         }
-    }        
+    }
 }
