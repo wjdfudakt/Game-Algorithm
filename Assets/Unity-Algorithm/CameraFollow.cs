@@ -3,48 +3,33 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    [SerializeField] private Rigidbody targetRb;
 
     [SerializeField] private float distance = 5f;
     [SerializeField] private float height = 2f;
-
-    [SerializeField] private float smoothTime = 0.3f;
     [SerializeField] private float rotationSmooth = 5f;
 
-    private Vector3 velocity = Vector3.zero;
+    private Vector3 lastMoveDir = Vector3.forward;
 
     void LateUpdate()
     {
-        // 타겟 뒤 방향
-        Vector3 backDir = -target.forward;
+        Vector3 moveDir = targetRb.linearVelocity;
 
-        // 목표 위치
-        Vector3 desiredPos =
-            target.position +
-            backDir * distance +
-            Vector3.up * height;
+        // 거의 멈췄을 때는 마지막 이동 방향 유지
+        if (moveDir.sqrMagnitude > 0.01f)
+        {
+            moveDir.Normalize();
+            lastMoveDir = moveDir;
+        }
 
-        // 부드럽게 따라가기
-        transform.position =
-            Vector3.SmoothDamp(
-                transform.position,
-                desiredPos,
-                ref velocity,
-                smoothTime);
+        Vector3 desiredPos = target.position - lastMoveDir * distance + Vector3.up * height;
 
-        // 바라볼 위치
-        Vector3 lookTarget =
-            target.position + Vector3.up * 1.2f;
+        transform.position = desiredPos;
 
-        // 목표 회전
-        Quaternion targetRot =
-            Quaternion.LookRotation(
-                lookTarget - transform.position);
+        Vector3 lookTarget = target.position + Vector3.up * 1.2f;
 
-        // 부드러운 회전
-        transform.rotation =
-            Quaternion.Slerp(
-                transform.rotation,
-                targetRot,
-                rotationSmooth * Time.deltaTime);
+        Quaternion targetRot = Quaternion.LookRotation(lookTarget - transform.position);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSmooth * Time.deltaTime);
     }
 }

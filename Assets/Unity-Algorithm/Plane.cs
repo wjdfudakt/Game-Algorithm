@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class Plane : MonoBehaviour
 {
@@ -119,5 +118,5 @@ public class Plane : MonoBehaviour
         //    gravityActive = false;
         //    currentVelocityY = 0;
         //}
-    }    
+    }
 }

@@ -9,7 +9,7 @@ public class QuaternionInputGizmoPractice : MonoBehaviour
     public float targetRange = 4f;
 
     Vector3 targetOffset = new Vector3(0f, 0f, 4f);
-        
+
     void Update()
     {
         Keyboard keyboard = Keyboard.current;
@@ -84,6 +84,6 @@ public class QuaternionInputGizmoPractice : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(origin, origin + targetDirection * targetDistance);
     }
-    
+
 
 }
