@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AimTest : MonoBehaviour
+public class PlaneMachineGun : MonoBehaviour
 {
     [Header("Launch")]
     [Tooltip("Space 키를 눌렀을 때 실제로 생성할 투사체 프리팹입니다. 비워 두면 예측선만 표시합니다.")]
@@ -32,31 +32,6 @@ public class AimTest : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current == null)
-        {
-            return;
-        }
-
-        if (Keyboard.current.leftArrowKey.isPressed)
-        {
-            yawAngle -= 60f * Time.deltaTime;
-        }
-
-        if (Keyboard.current.rightArrowKey.isPressed)
-        {
-            yawAngle += 60f * Time.deltaTime;
-        }
-
-        if (Keyboard.current.downArrowKey.isPressed)
-        {
-            launchAngle -= 40f * Time.deltaTime;
-        }
-
-        if (Keyboard.current.upArrowKey.isPressed)
-        {
-            launchAngle += 40f * Time.deltaTime;
-        }
-
         launchAngle = Mathf.Clamp(launchAngle, 5f, 80f);
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
