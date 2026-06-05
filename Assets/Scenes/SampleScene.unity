@@ -917,7 +917,7 @@ Transform:
   m_GameObject: {fileID: 532174319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 5, z: 0}
+  m_LocalPosition: {x: 45, y: 5, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1243,7 +1243,7 @@ Transform:
   m_GameObject: {fileID: 746542325}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 10, z: 19.9}
+  m_LocalPosition: {x: -45, y: 10, z: 45}
   m_LocalScale: {x: 10, y: 20, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2003,7 +2003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &877104853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3504,7 +3504,7 @@ Transform:
   m_GameObject: {fileID: 1588530450}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 5, z: 0}
+  m_LocalPosition: {x: -45, y: 5, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3663,7 +3663,7 @@ GameObject:
   - component: {fileID: 1751840337}
   - component: {fileID: 1751840344}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player(Move&Jump)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3923,7 +3923,7 @@ GameObject:
   - component: {fileID: 1886344915}
   - component: {fileID: 1886344916}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player(Plane)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
