@@ -6,11 +6,6 @@ public class PlayerMove : MonoBehaviour
 {
     public float PlayerMoveSpeed = 10f;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         Vector2 inputVector = Vector2.zero;

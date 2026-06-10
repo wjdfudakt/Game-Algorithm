@@ -5,9 +5,9 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private Rigidbody targetRb;
 
-    [SerializeField] private float distance = 5f;
-    [SerializeField] private float height = 2f;
-    [SerializeField] private float rotationSmooth = 5f;
+    [SerializeField] private float distance = 20f;
+    [SerializeField] private float height = 10f;
+    [SerializeField] private float rotationSmooth = 1000000f;
 
     private Vector3 lastMoveDir = Vector3.forward;
 

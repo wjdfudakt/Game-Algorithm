@@ -17,15 +17,12 @@ public class DfsGizmoVisualizer : MonoBehaviour
     [SerializeField] private float cellSize = 1f;
 
     [Header("Path")]
-    // 탐색을 시작하는 칸입니다. 초록색으로 표시됩니다.
     [Tooltip("경로 탐색을 시작할 칸입니다.")]
     [SerializeField] private Vector2Int start = new Vector2Int(0, 0);
 
-    // 도착해야 하는 목표 칸입니다. 빨간색으로 표시됩니다.
     [Tooltip("경로 탐색의 목표 칸입니다.")]
     [SerializeField] private Vector2Int goal = new Vector2Int(5, 3);
 
-    // 지나갈 수 없는 칸 목록입니다. 검은색으로 표시됩니다.
     [Tooltip("이동할 수 없는 벽 칸 목록입니다.")]
     [SerializeField]
     private Vector2Int[] walls =
@@ -81,29 +78,24 @@ public class DfsGizmoVisualizer : MonoBehaviour
             return;
         }
 
-        // Stack.Pop은 가장 나중에 넣은 칸을 먼저 꺼냅니다.
         currentNode = frontier.Pop();
 
         processed.Add(currentNode);
 
         foreach (Vector2Int neighbor in GetNeighbors(currentNode))
         {
-            // 1. 벽이면 바로 스킵
             if (IsWall(neighbor))
             {
                 continue;
             }
 
-            // 2. 이미 방문한 노드면 스킵
             if (visited.Contains(neighbor))
             {
                 continue;
             }
 
-            // 3. 방문 처리
             visited.Add(neighbor);
 
-            // Stack.Push는 다음에 방문할 후보 칸을 위에 쌓습니다.
             frontier.Push(neighbor);
         }
     }
@@ -137,7 +129,6 @@ public class DfsGizmoVisualizer : MonoBehaviour
 
     private bool IsWall(Vector2Int node)
     {
-        // walls 배열에 같은 좌표가 하나라도 있으면 벽으로 판단합니다.
         foreach (Vector2Int wall in walls)
         {
             if (wall == node)
