@@ -22,13 +22,13 @@
 
 ### 탱크 조작 (Tank)
 - Plane과 유사한 구조를 가지며 로컬 좌표를 기반으로 이동한다.
-- Y축 이동은 사용하지 않는다.
+- Y 좌표 이동은 사용하지 않는다.
 
 ---
 
 ## 몬스터 AI (감지 / 회전 / 상태 전환)
 
-몬스터는 Patrol, Detect, Chase, Attack 상태를 가지며
+Patrol은 Patrol, Detect, Chase, Attack 상태를 가지며
 거리 및 시야각에 따라 상태가 전환된다.
 
 ### Patrol (순찰)
