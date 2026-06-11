@@ -6,6 +6,8 @@
 
 Assets>Unity-Algorithm Assets>Player
 
+Move&Jump, Plane, Tank는 각각 카메라 보유. 모두 display2로 설정.
+
 PlayerMove
 ### 방향키 이동 (↑ ↓ ← →)
 - 키보드 방향키를 사용하여 월드 좌표 기준 X, Z 축 이동을 수행한다.
