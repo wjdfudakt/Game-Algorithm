@@ -135,10 +135,10 @@ public class PatrolMonster : MonoBehaviour
         // 도착 판정
         if ((transform.position - targetPos).sqrMagnitude <= arriveDistance * arriveDistance)
         {
-            currentIndex++;
+            currentIndex++;//순찰 포인트에 도착 시 카운트 1 증가
 
-            if (currentIndex >= patrolPoints.Count)
-                currentIndex = 0;
+            if (currentIndex >= patrolPoints.Count)//마지막 포인트에 도착 시
+                currentIndex = 0;//카운트를 0으로 초기화, 다시 순찰 시작
         }
 
         
