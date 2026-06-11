@@ -1,27 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Canon : MonoBehaviour
+public class AimTest : MonoBehaviour
 {
     [Header("Launch")]
     [Tooltip("Space 키를 눌렀을 때 실제로 생성할 투사체 프리팹입니다. 비워 두면 예측선만 표시합니다.")]
     [SerializeField] private GameObject projectilePrefab;
 
-    [Tooltip("투사체 발사 속도")]
+    [Tooltip("투사체가 발사되는 속도입니다. 값이 클수록 더 멀리 날아갑니다.")]
     [SerializeField] private float launchSpeed = 12f;
 
-    [Tooltip("투사체 상하 발사 각도")]
+    [Tooltip("투사체를 위로 들어 올리는 발사 각도입니다.")]
     [SerializeField] private float launchAngle = 35f;
 
     [Header("Prediction")]
-    [Tooltip("궤적 예측 시 점의 개수")]
+    [Tooltip("궤적을 예측할 때 찍을 점의 개수입니다.")]
     [SerializeField] private int maxSteps = 40;
 
-    [Tooltip("예측 점 사이의 시간 간격")]
+    [Tooltip("예측 점 사이의 시간 간격입니다. 작을수록 더 촘촘하지만 계산이 늘어납니다.")]
     [SerializeField] private float timeStep = 0.08f;
-
-    [Tooltip("탄이 발사되는 위치")]
-    [SerializeField] private Transform firePoint;
 
     [Tooltip("Unity 6 Rigidbody의 Linear Damping에 대응하는 예측용 감쇠 값입니다.")]
     [SerializeField] private float linearDamping = 0f;
@@ -32,7 +29,22 @@ public class Canon : MonoBehaviour
 
     private void Update()
     {
-        launchAngle = Mathf.Clamp(launchAngle, 0f, 80f);
+        if (Keyboard.current == null)
+        {
+            return;
+        }
+
+        if (Keyboard.current.downArrowKey.isPressed)
+        {
+            launchAngle -= 40f * Time.deltaTime;
+        }
+
+        if (Keyboard.current.upArrowKey.isPressed)
+        {
+            launchAngle += 40f * Time.deltaTime;
+        }
+
+        launchAngle = Mathf.Clamp(launchAngle, 5f, 80f);
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
@@ -42,26 +54,19 @@ public class Canon : MonoBehaviour
 
     private Vector3 GetLaunchVelocity()
     {
-        if (firePoint == null)
-            return transform.forward * launchSpeed;
+        Quaternion rotation = Quaternion.Euler(-launchAngle, 0f, 0f);//위 화살표를 눌렀을 때 상승해야 하므로 x는 - 추가
 
-        Vector3 forward = firePoint.forward;
-
-        Quaternion pitch = Quaternion.AngleAxis(-launchAngle, firePoint.right);
-
-        Vector3 direction = pitch * forward;
-
-        return direction.normalized * launchSpeed;
+        return rotation * Vector3.forward * launchSpeed;
     }
 
     private void FireProjectile()
     {
-        if (projectilePrefab == null || firePoint == null)
+        if (projectilePrefab == null)
         {
             return;
         }
 
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Rigidbody body = projectile.GetComponent<Rigidbody>();
 
         if (body == null)

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CollisionLog : MonoBehaviour
+public class HitSensor : MonoBehaviour
 {
     public string currentState = "´ë±â Áß";
     void OnCollisionEnter(Collision collision)

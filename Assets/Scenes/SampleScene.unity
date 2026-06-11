@@ -278,7 +278,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   launchSpeed: 60
   launchAngle: 35
-  yawAngle: 0
   maxSteps: 40
   timeStep: 0.08
   linearDamping: 0
@@ -485,9 +484,9 @@ Transform:
   m_Children:
   - {fileID: 877104854}
   - {fileID: 1751840343}
+  - {fileID: 216429155}
   - {fileID: 1886344914}
   - {fileID: 1279585952}
-  - {fileID: 216429155}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
@@ -4316,7 +4315,6 @@ GameObject:
   - component: {fileID: 1886344915}
   - component: {fileID: 1886344916}
   - component: {fileID: 1886344913}
-  - component: {fileID: 1886344917}
   m_Layer: 0
   m_Name: Player(Plane)
   m_TagString: Player
@@ -4414,25 +4412,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &1886344917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886344912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aeede39a8620524ab7fe596d3ba46ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8976142468227795329, guid: eb2fb7f72e909004990aeef8d1cedc85, type: 3}
-  launchSpeed: 900
-  launchAngle: 0
-  maxSteps: 1
-  timeStep: 0.08
-  firePoint: {fileID: 1024070796}
-  linearDamping: 0
 --- !u!1 &1889496607
 GameObject:
   m_ObjectHideFlags: 0

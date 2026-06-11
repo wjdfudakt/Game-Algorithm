@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class ShellTimeLimit : MonoBehaviour
 {
     [Header("time")]
     [SerializeField] private float Time = 5f;
