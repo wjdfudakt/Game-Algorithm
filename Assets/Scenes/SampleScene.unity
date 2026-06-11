@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8976142468227795329, guid: eb2fb7f72e909004990aeef8d1cedc85, type: 3}
-  launchSpeed: 900
+  launchSpeed: 100
   launchAngle: 0
   maxSteps: 10000
   timeStep: 0.08
@@ -3875,6 +3875,7 @@ GameObject:
   - component: {fileID: 2024291516}
   - component: {fileID: 2024291515}
   - component: {fileID: 2024291514}
+  - component: {fileID: 2024291519}
   - component: {fileID: 2024291513}
   - component: {fileID: 2024291518}
   m_Layer: 0
@@ -4001,7 +4002,7 @@ Transform:
   m_GameObject: {fileID: 2024291512}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40, y: 1, z: 10}
+  m_LocalPosition: {x: -40, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4024,6 +4025,33 @@ MonoBehaviour:
   attackHitRange: 3
   attackDelay: 2
   attackCooldown: 5
+--- !u!54 &2024291519
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024291512}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2132596329
 GameObject:
   m_ObjectHideFlags: 0

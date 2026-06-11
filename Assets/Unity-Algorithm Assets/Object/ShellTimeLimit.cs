@@ -11,12 +11,6 @@ public class ShellTimeLimit : MonoBehaviour
         Destroy(gameObject, Time);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        // 충돌 시 삭제
-        Destroy(gameObject);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         // Trigger 사용 시도 대응
