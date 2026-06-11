@@ -4,15 +4,20 @@
 
 ## 플레이어 이동
 
+Assets>Unity-Algorithm Assets>Player
+
+PlayerMove
 ### 방향키 이동 (↑ ↓ ← →)
 - 키보드 방향키를 사용하여 월드 좌표 기준 X, Z 축 이동을 수행한다.
 
+PhysicsMove
 ### WASD 이동 및 점프 (Move & Jump)
 - WASD 키를 이용하여 월드 좌표 기준 이동을 수행한다.
 - 스페이스바를 통해 점프 기능을 구현하였다.
 - Rigidbody를 사용하여 물리 기반 이동을 구현하였으며,
   가속, 감속, 관성, 충돌 등의 물리 효과가 적용된다.
 
+Plane
 ### 비행기 조작 (Plane)
 - 로컬 좌표계를 기준으로 이동 및 회전을 처리한다.
 - WS: 가속 / 감속
@@ -20,6 +25,7 @@
 - ↑ ↓: 피치(Pitch, 상하 회전)
 - ← →: 롤(Roll, 기체 기울기)
 
+TankMovement
 ### 탱크 조작 (Tank)
 - Plane과 유사한 구조를 가지며 로컬 좌표를 기반으로 이동한다.
 - Y 좌표 이동은 사용하지 않는다.
@@ -27,6 +33,8 @@
 ---
 
 ## 몬스터 AI (감지 / 회전 / 상태 전환)
+
+Assets>Unity-Algorithm Assets>Monster>PatrolMonster, MonsterAttack
 
 PatrolMonster는 Patrol, Detect, Chase, Attack 상태를 가지며
 거리와 시야각에 따라 상태가 전환된다.
@@ -51,6 +59,8 @@ PatrolMonster는 Patrol, Detect, Chase, Attack 상태를 가지며
 ---
 
 ## 자료구조 활용
+
+Assets>Unity-Algorithm Assets>Monster>PatrolMonster
 
 ### List (순찰 경로 관리)
 
